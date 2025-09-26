@@ -1,0 +1,38 @@
+📊 Folder size before packaging:
+977M	node_modules
+534M	scheduler_base_configurator.zip
+267M	horarios_app.zip
+692K	scheduler_base_configurator_2025-08-16_03-00-27.tar.gz
+520K	src
+388K	package-lock.json
+348K	scheduler_base_configurator_2025-08-16_02-59-41.tar.gz
+176K	scheduler_base_configurator.tar.gz
+40K	HORARIOS_INTELIGENTES
+8.0K	docs
+4.0K	zip_scheduler.sh
+4.0K	zip_log_2025-08-16_02-45-43.txt
+4.0K	zip_log_2025-08-16_02-42-33.txt
+4.0K	tsconfig.json
+4.0K	tailwind.config.ts
+4.0K	README.md
+4.0K	postcss.config.mjs
+4.0K	package_scheduler.sh
+4.0K	package_log_2025-08-23_00-39-56.txt
+4.0K	package_log_2025-08-16_03-00-27.txt
+4.0K	package_log_2025-08-16_02-59-41.txt
+4.0K	package.json
+4.0K	next-env.d.ts
+4.0K	next.config.ts
+4.0K	components.json
+4.0K	apphosting.yaml
+0	scheduler_base_configurator.local.bak
+
+✅ Archive created: scheduler_base_configurator_2025-08-23_00-39-56.tar.gz (1.9M)
+🧾 Exclusions applied:
+node_modules
+.next
+build
+coverage
+.git
+*.zip
+audit
