@@ -1,3 +1,4 @@
+=== .gitignore ===
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -14,7 +15,7 @@
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
@@ -37,15 +38,23 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# genkit
 .genkit/*
+
+# environment variables
 .env*
+!.env.example
 
 # firebase
 firebase-debug.log
-firestore-debug.logHORARIOS_INTELIGENTES/
-# Ignorar todos los archivos de respaldo y comprimidos
+firestore-debug.log
+
+# proyecto: horarios inteligentes
+HORARIOS_INTELIGENTES/
+
+# archivos comprimidos y respaldo
 *.zip
 *.tar.gz
 
-# Ignorar las dependencias de Node
-/node_modules/
+# node dependencies (duplicado, ya cubierto arriba)
+# /node_modules/ → ya está en la sección de dependencies
