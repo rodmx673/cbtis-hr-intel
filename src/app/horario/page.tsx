@@ -295,6 +295,37 @@ export default function HorarioPorGrupo() {
     }
   };
 
+  // INICIO DE LA ADAPTACIÓN: Función para descargar JSON
+  const handleDownloadJson = () => {
+    if (!nivelSeleccionado || !grupoSeleccionado) return;
+    
+    const key = `${nivelSeleccionado}_${grupoSeleccionado}`;
+    const horarioData = horarios[key] || [];
+
+    // 1. Convertir los datos a una cadena JSON
+    const jsonString = JSON.stringify(horarioData, null, 2); // 'null, 2' para formato legible
+    
+    // 2. Crear un Blob (Binary Large Object) con el contenido JSON
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    
+    // 3. Crear un enlace de descarga
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    
+    // 4. Asignar el nombre del archivo
+    const currentNivelNombre = niveles.find(n => n.id === nivelSeleccionado)?.nombre || 'Horario';
+    a.download = `horario_${currentNivelNombre}_Grupo_${grupoSeleccionado}.json`;
+    
+    // 5. Simular el clic y limpiar
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+  // FIN DE LA ADAPTACIÓN
+
+
   const currentHorario = useMemo(() => {
     if (!nivelSeleccionado || !grupoSeleccionado) return [];
     const key = `${nivelSeleccionado}_${grupoSeleccionado}`;
@@ -376,6 +407,18 @@ export default function HorarioPorGrupo() {
               )}
               Descargar PDF
             </Button>
+            
+            {/* INICIO DE LA ADAPTACIÓN: Botón de Descargar JSON */}
+            <Button 
+              onClick={handleDownloadJson} 
+              disabled={!currentNivel || Object.keys(horarios).length === 0}
+              variant="secondary"
+            >
+              <Download className="mr-2 h-4 w-4"/>
+              Descargar JSON
+            </Button>
+            {/* FIN DE LA ADAPTACIÓN */}
+
           </div>
         </header>
 
@@ -518,7 +561,7 @@ export default function HorarioPorGrupo() {
                                                       >
                                                         <span className="font-bold">{bloque.asignatura}</span>
                                                         <span className="opacity-80">{bloque.docenteId}</span>
-                                                    </div>
+                                                      </div>
                                                 )}
                                               </Draggable>
                                           ) : (
